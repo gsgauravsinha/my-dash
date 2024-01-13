@@ -21,14 +21,14 @@ plot = st.sidebar.button('Plot Graph')
 
 if plot:
     if selected_state == 'Overall India':
-        fig = px.scatter_mapbox(df,lat = 'Latitude', lon = 'Longitude', zoom = 4, size_max=30,
+        fig = px.scatter_mapbox(df,lat = 'Latitude', lon = 'Longitude', zoom = 3, size_max=30,
                                 size = selected_primary, color= selected_secondary, mapbox_style='carto-positron',
                                 width = 1200, height = 700 , color_continuous_scale=[[0, 'red'], [0.5, 'rgb(0, 0, 255)'],[1, 'green']]
                                 , hover_name='District')
         st.plotly_chart(fig, use_container_width=True)
     else:
         state_df = df[df['State'] == selected_state]
-        fig = px.scatter_mapbox(state_df, lat='Latitude', lon='Longitude', zoom=6, size_max=40,
+        fig = px.scatter_mapbox(state_df, lat='Latitude', lon='Longitude', zoom=5, size_max=40,
                                 size=selected_primary, color=selected_secondary, mapbox_style='carto-positron',
                                 width=1200, height=700
                                 ,color_continuous_scale=[[0, 'red'], [0.5, 'rgb(100, 100, 100)'], [1, 'green']]
